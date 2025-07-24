@@ -33,5 +33,3 @@ you can check log by type this command in you terminal
 ```
 journalctl --user -u asus-performance.service -f
 ```
-
-im not native enaglish so keep it up
