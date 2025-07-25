@@ -67,27 +67,26 @@ while true; do
         if [ "$IDLE_STATE" -eq 1 ]; then
             # Set idle state to active
             IDLE_STATE=1
-
             if asusctl profile -p | grep -q "Performance"; then
+                asusctl profile -P Performance
                 ASUSCTL_PROFILE_IDLE="Performance"
                 echo "🚀 Successfully set asusctl Performance"
-            elif asusctl profile -p | grep -q "Balanced"; then
+            elif asusctl profile -p | grep -q "Balanced" && [ "$ASUSCTL_PROFILE_IDLE" != "Balanced" ]; then
+                asusctl profile -P Balanced
                 ASUSCTL_PROFILE_IDLE="Balanced"
                 echo "❤️ Successfully set asusctl Balanced"
-            else
+            elif asusctl profile -p | grep -q "Quiet" && [ "$ASUSCTL_PROFILE_IDLE" != "Quiet" ]; then
+                asusctl profile -P Quiet
                 ASUSCTL_PROFILE_IDLE="Quiet"
                 echo "💤 Successfully set asusctl Quiet"
             fi
         fi
         IDLE_STATE=1
-        ASUSCTL_PROFILE="$ASUSCTL_PROFILE_IDLE"
     else
         IDLE_STATE=0
-        ASUSCTL_PROFILE="Performance"
+        asusctl profile -P Performance
         echo "🚀 Successfully set asusctl Performance"
     fi
-
-    asusctl profile -P "$ASUSCTL_PROFILE"
 
     sleep 30
 done
