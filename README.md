@@ -1,15 +1,24 @@
-## What is this
+# What is this
 this project is make because of my laptop is not support nbfc to control fan speed but it have only asusctl can control fan speed by changing cpu profile but it run only about 30 second
 
-this script is making asusctl change cpu profile auto when you start gamemode
+## What scripts do
+this script is making asusctl change cpu profile auto
 
-i mean when in gamemode it change profile in to Performane
-but when not in gamemode it change profile back in to Balanced
+by this mode
+
+| Profile  | activation time |
+| ------------- | ------------- |
+| Gamemoderun  | change asusctl profile to Performance every 30 second   |
+| asusctl profile -P Performance  | change asusctl profile to Performance every 30 second  |
+| asusctl profile -P Balanced  | one time change tp Balanced  |
+| asusctl profile -P Quiet  | one time change to Quiet  |
+
 
 ## Requirement
 just need only 2 tool
 - **asusctl**
 - **gamemode**
+- systemd
 
 if you not installed 
 this script will auto install it
