@@ -2,6 +2,8 @@
 
 set -e
 
+
+
 # 1. Detect package manager
 if command -v apt &> /dev/null; then
     PM="apt"
@@ -71,18 +73,10 @@ while true; do
                 asusctl profile -P Performance
                 ASUSCTL_PROFILE_IDLE="Performance"
                 echo "🚀 Successfully set asusctl Performance"
-            elif asusctl profile -p | grep -q "Balanced" && [ "$ASUSCTL_PROFILE_IDLE" != "Balanced" ]; then
-                asusctl profile -P Balanced
-                ASUSCTL_PROFILE_IDLE="Balanced"
-                echo "❤️ Successfully set asusctl Balanced"
-            elif asusctl profile -p | grep -q "Quiet" && [ "$ASUSCTL_PROFILE_IDLE" != "Quiet" ]; then
-                asusctl profile -P Quiet
-                ASUSCTL_PROFILE_IDLE="Quiet"
-                echo "💤 Successfully set asusctl Quiet"
             fi
         fi
         IDLE_STATE=1
-    else
+    elif gamemoded -s | grep -q "inactive"; then
         IDLE_STATE=0
         asusctl profile -P Performance
         echo "🚀 Successfully set asusctl Performance"
