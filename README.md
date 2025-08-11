@@ -26,7 +26,7 @@ this script will auto install it
 but if error try to install by your self
 
 ## Usage
-run this script in your terminal *require sudo
+run this script in your terminal
 ```
 curl -L https://raw.githubusercontent.com/AnsuNotMyName/asusctl-auto-profile/refs/heads/main/auto-asusctl-profile.sh | bash
 ```
