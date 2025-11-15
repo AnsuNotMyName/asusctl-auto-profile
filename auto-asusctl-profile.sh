@@ -21,9 +21,9 @@ if [[ $PM == "apt" ]]; then
     sudo apt update
     sudo apt install -y asusctl gamemode
 elif [[ $PM == "yay" ]]; then
-    yay -S --noconfirm --needed asusctl gamemode-git
+    yay -S --noconfirm --needed asusctl gamemode --ignore gamemode-git
 elif [[ $PM == "pacman" ]]; then
-    sudo pacman -S --noconfirm --needed asusctl gamemode-git
+    sudo pacman -S --noconfirm --needed asusctl gamemode --ignore gamemode-git
 fi
 
 # 3. Check installation
