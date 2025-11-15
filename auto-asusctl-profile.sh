@@ -17,14 +17,7 @@ else
 fi
 
 # 2. Install dependencies
-if [[ $PM == "apt" ]]; then
-    sudo apt update
-    sudo apt install -y asusctl gamemode
-elif [[ $PM == "yay" ]]; then
-    yay -S --noconfirm --needed asusctl gamemode --ignore gamemode-git
-elif [[ $PM == "pacman" ]]; then
-    sudo pacman -S --noconfirm --needed asusctl gamemode --ignore gamemode-git
-fi
+
 
 # 3. Check installation
 if ! command -v asusctl &>/dev/null || ! command -v gamemoded &>/dev/null; then
